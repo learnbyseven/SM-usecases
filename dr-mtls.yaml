@@ -1,0 +1,18 @@
+# Destination rule for using custom certs attached as secrets/configmap on istio-sidecar-proxy 
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: mtls-dr
+spec:
+  host: ec2-54-200-243-196.us-west-2.compute.amazonaws.com
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+    portLevelSettings:
+    - port:
+        number: 443
+      tls:
+        mode: MUTUAL
+        clientCertificate: /etc/certs/client.crt
+        privateKey: /etc/certs/client.key
+        caCertificates: /etc/certs/giri.local.crt

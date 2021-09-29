@@ -1,0 +1,14 @@
+# Virtual Service for routing traffic from app-container to Istio-sidecar-proxy 
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: mtls-vs
+spec:
+  hosts:
+  - ec2-54-200-243-196.us-west-2.compute.amazonaws.com
+  http:
+  - route:
+    - destination:
+        host: ec2-54-200-243-196.us-west-2.compute.amazonaws.com
+        port:
+          number: 443

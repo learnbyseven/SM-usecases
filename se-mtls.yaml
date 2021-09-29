@@ -1,0 +1,14 @@
+# Service entry for external mTLS enabled service 
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: mtls-se
+spec:
+  hosts:
+  - ec2-54-200-243-196.us-west-2.compute.amazonaws.com
+  ports:
+  - number: 443
+    name: https
+    protocol: HTTPS
+  resolution: DNS
+  location: MESH_EXTERNAL

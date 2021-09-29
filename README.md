@@ -1,11 +1,8 @@
 # SM-usecases
 
-1. m-TLS external service via Sidecar using destination rule 
-   - Creating custom certs (out of scope of this doc.) 
-   - Attaching certs to sidecar Proxy 
-   - Deployment manifestation change 
-   - Service entry creation 
-   - Virtual service creation 
-   - Destination rule creation
-   - Applying all above and test 
+- m-TLS to external service using custom certs hosted on istio-proxy (sidecar) with destination rule 
+- STEPS @ https://github.com/learnbyseven/SM-usecases/blob/main/Steps-mTLS-externalservice
+
+![Image of SM](https://github.com/learnbyseven/SM-usecases/blob/main/external-service-mTLS.png)
+  
 

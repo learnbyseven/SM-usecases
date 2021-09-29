@@ -1,0 +1,27 @@
+STEPS: v.1.0
+-----
+
+1. Creating custom certs (Out of scope of this doc.)
+2. Attaching certs to sidecar Proxy
+   $ kubectl create secret -n test-tier generic client-certs --from-file=client.crt --from-file=client.key --from-file=ca.crt
+3. Deployment manifestation change
+   - istioctl kube-inject -f myapp_deployment.yaml > myapp_deployment-with-istio-sidecar.yaml
+   - Add annotation to app_deployment.yaml (look for sample file myapp_deployment-with-istio-sidecar.yaml) ## This change will mount certs to your istio-proxy container under location /etc/certs
+     - sidecar.istio.io/userVolumeMount: '[{"name":"client-certs", "mountPath":"/etc/certs", "readonly":true}]'
+     - sidecar.istio.io/userVolume: '[{"name":"client-certs", "secret":{"secretName":"client-certs"}}]'
+4. Applying Service-entry/Virtual-service/Destination-rule
+   File names
+   - se-mtls.yaml
+   - vs-mtls.yaml
+   - dr-mtls.yaml
+5. Verify validity of certs attached as secret
+   - $ istioctl ps ## choose your application deployement as per istio eg. test-tier-deployment-6b6546d446-zrsk9.test-tier
+   - $ istioctl pc <Name of your app. deployment> ## for eg. $ istioctl pc secrets test-tier-deployment-6b6546d446-zrsk9.test-tier
+       - cert/key/ca certs should be Status: Active, VALID CERT: true
+6. Verify certs are rightly mounted on istio-proxy at right location
+   $ kubectl -n <your-app-namespace> get pod -o yaml ## grep/look for volume/mount volume under istio-proxy container definition and cross check the location you have stated while annotating app. deployment
+7. Run test
+   $ curl -v <fqdn of your external service> ## test shows positive response from your external service
+    
+FINISH
+------

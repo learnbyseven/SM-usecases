@@ -16,7 +16,7 @@ STEPS: v.1.0
    - dr-mtls.yaml
 5. Verify validity of certs attached as secret
    - $ istioctl ps ## choose your application deployement as per istio eg. test-tier-deployment-6b6546d446-zrsk9.test-tier
-   - $ istioctl pc <Name of your app. deployment> ## for eg. $ istioctl pc secrets test-tier-deployment-6b6546d446-zrsk9.test-tier
+   - $ istioctl pc secrets <Name of your app. deployment> ## for eg. $ istioctl pc secrets test-tier-deployment-6b6546d446-zrsk9.test-tier
        - cert/key/ca certs should be Status: Active, VALID CERT: true
 6. Verify certs are rightly mounted on istio-proxy at right location
    $ kubectl -n <your-app-namespace> get pod -o yaml ## grep/look for volume/mount volume under istio-proxy container definition and cross check the location you have stated while annotating app. deployment

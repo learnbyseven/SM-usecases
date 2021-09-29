@@ -8,4 +8,4 @@
 6. - Virtual service creation 
 7. - Destination rule creation
 8. - Applying all above and test 
-9. 
+

@@ -1,0 +1,8 @@
+STEPS:
+
+1. Creating custom certs (out of scope of this doc.) 
+2. Attaching certs to sidecar Proxy & verifying health 
+3. Deployment manifestation change 
+4. Applying Service-entry/Virtual-service/Destination-rule
+5. Run test
+    

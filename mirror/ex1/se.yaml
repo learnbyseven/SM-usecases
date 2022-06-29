@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: ext-svc-1
+spec:
+  hosts:
+  - ec2-15-207-229-119.ap-south-1.compute.amazonaws.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 8181
+    name: http-ext
+    protocol: HTTP
+  resolution: DNS
+

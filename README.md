@@ -12,5 +12,5 @@
 ![Image of ex1](https://github.com/learnbyseven/SM-usecases/blob/main/mirror/ex1/Example1.png)
 
 ### Ex2 
-[Image of ex2](https://github.com/learnbyseven/SM-usecases/blob/main/mirror/ex1/Example1.png)
+![Image of ex2](https://github.com/learnbyseven/SM-usecases/blob/main/mirror/ex1/Example1.png)
 

@@ -2,10 +2,10 @@
 
 ## Mirror 
 
-### Ex1 
+### Eg1 
 ![Image of ex1](https://github.com/learnbyseven/SM-usecases/blob/main/mirror/ex1/Example1.png)
 
-### Ex2 
+### Eg2 
 ![Image of ex2](https://github.com/learnbyseven/SM-usecases/blob/main/mirror/ex2/Example2.png)
 
 
